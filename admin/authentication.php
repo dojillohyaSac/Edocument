@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['authenticated'])) {
-    $_SESSION['status'] = "Please Login to Access the Page";
-    $_SESSION['status_text'] = " ";
+    $_SESSION['status'] = "Denied Access!";
+    $_SESSION['status_text'] = "Please Login to Access the Page";
     $_SESSION['status_code'] = "warning";
     $_SESSION['status_btn'] = "Back";
-    header("Location: index");
+    header("Location: /eDocument/login");
     exit(0);
 }
 
