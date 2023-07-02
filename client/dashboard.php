@@ -53,113 +53,16 @@ include('includes/side_nav.php');
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-success text-white mb-4">
-                    <div class="card-body">
-                        Receive Documents
-                        <?php
 
-                          include('includes/config.php');
-
-                          $query_number = "SELECT `id` FROM `admin_request` WHERE `Status` = 1 ORDER BY `id`";
-                          $query_number_run = mysqli_query($conn, $query_number);
-
-                          if ($row = mysqli_num_rows($query_number_run)) {
-                            echo '<h1 class="mb-0">'.$row.'</h1>';
-                          }else {
-                            echo '<h1 class="mb-0"> No Data Found </h1>';
-                          }
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">
-                        Ended Documents
-                        <?php
-
-                          include('includes/config.php');
-
-                          $query_number = "SELECT `id` FROM `admin_request` WHERE `Status` = 1 ORDER BY `id`";
-                          $query_number_run = mysqli_query($conn, $query_number);
-
-                          if ($row = mysqli_num_rows($query_number_run)) {
-                            echo '<h1 class="mb-0">'.$row.'</h1>';
-                          }else {
-                            echo '<h1 class="mb-0"> No Data Found </h1>';
-                          }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="row">
-            <div class="col-xl-6">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fas fa-chart-area me-1"></i>
-                        Area Chart Example
-                    </div>
-                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fas fa-chart-bar me-1"></i>
-                        Bar Chart Example
-                    </div>
-                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                </div>
-            </div>
-        </div> -->
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                DataTable Example
+                Document Status
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar w-75"></div>
+                </div>
             </div>
         </div>
     </div>

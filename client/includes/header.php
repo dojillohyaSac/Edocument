@@ -1,7 +1,3 @@
-<!-- <?php
-session_start();
-?> -->
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,8 +7,12 @@ session_start();
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>eDocument: Online Application and Document Tracking and Repository System for Civil Registry</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+
+        <!-- Datatables -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+        
         <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">

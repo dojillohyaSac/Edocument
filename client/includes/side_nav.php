@@ -9,9 +9,9 @@
                     Dashboard
                 </a>
                 <div class="sb-sidenav-menu-heading">Registry</div>
-                <a class="nav-link collapsed" href="documentStatus">
+                <a class="nav-link collapsed" href="document_client">
                     <div class="sb-nav-link-icon"><i class="fas fa-folder"></i></div>
-                    Document Status
+                    Documents
                 </a>
                 <a class="nav-link collapsed" href="clientRequest">
                     <div class="sb-nav-link-icon"><i class="fas fa-file-lines"></i></div>
