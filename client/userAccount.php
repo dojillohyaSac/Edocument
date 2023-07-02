@@ -25,11 +25,14 @@ include('includes/side_nav.php');
                                 $row = mysqli_num_rows($query_run);
                                 foreach ($query_run as $row) {
                             ?>
-                        <!-- <?php echo '<img src="images/upload/pdl/'.$row['inPicture'].' " class="img-thumbnail" height="250" width="250";>'?> -->
-                        <center><img src="images/crc-logo.png" class="mt-2" height="200" width="200"></center>
+                        <!-- <img src="images/crc-logo.png" class="mt-2" height="200" width="200"> -->
+                        <center><?php echo '<img src="images/uploads/'.$row['cPicture'].' " class="img-thumbnail" height="200" width="200";>'?></center>
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['cUsername'];?></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <form method="POST" action="clientDataCode.php" enctype="multipart/form-data">
+                                <h5 class="card-title text-center"><?php echo $row['cUsername'];?></h5>
+                                <hr>
+                                <small class="form-label" id="picture">Upload Profile Picture</small>
+                                <input for="InputPicture" class="form-control form-control-sm" type="file" name="image" id="image">
                         </div>
                     </div>
                 </div>
@@ -40,12 +43,12 @@ include('includes/side_nav.php');
                             User Profile
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="#" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-4 mt-3">
                                         <!-- <div class="form-floating mt-3"> -->
                                             <label class="form-label" id="floatingInput">First Name</label>
                                             <input for="floatingInput" class="form-control" type="text" name="FirstName" value="<?php echo $row['cFirstname'];?>">
+                                            <input type="hidden" name="IDNumber" value="<?php echo $row['id'];?>">
                                         <!-- </div> -->
                                     </div>
                                     <div class="col-4 mt-3">
@@ -75,7 +78,7 @@ include('includes/side_nav.php');
                                     <div class="col-4 mt-3">
                                         <!-- <div class="form-floating mt-3"> -->
                                             <label class="form-label" id="floatingInput">Username</label>
-                                            <input  class="form-control" type="text" name="username" value="<?php echo $row['cUsername'];?>">
+                                            <input  class="form-control" type="text" name="username" value="<?php echo $row['cUsername'];?>" readonly>
                                         <!-- </div> -->
                                     </div>
                                     <div class="col-4 mt-3">
@@ -109,15 +112,14 @@ include('includes/side_nav.php');
                                     <div class="col-6 mt-3">
                                         <!-- <div class="form-floating mt-3"> -->
                                             <label class="form-label" id="InputPassword">Password</label>
-                                            <input for="InputPassword" class="form-control" type="password" name="password" id="password" value="<?php echo $row['cPassword'];?>">
+                                            <input for="InputPassword" class="form-control" type="password" name="password" id="password" value="<?php echo $row['cPassword'];?>" readonly>
                                             <div class="" id="password-label">
                                             
                                             </div>
                                         <!-- </div> -->
                                     </div>
                                     <div class="col-6 mt-3">
-                                        <label class="form-label" id="picture">Upload Profile Picture</label>
-                                        <input for="InputPicture" class="form-control" type="file" name="picture" id="picture">
+                                        <p><a class="link-opacity-100 form-text" href="#">Change Password?</a></p>
                                     </div>
                                 </div>
 
@@ -138,3 +140,21 @@ include('includes/side_nav.php');
 <?php
 include('includes/footer.php');
 ?>
+
+<script src="js/sweetalert.min.js"></script>
+        <?php
+            if (isset($_SESSION['status'])){
+        ?>
+            <script>
+                swal({
+                title: "<?php echo $_SESSION['status']; ?>",
+                text: "<?php echo $_SESSION['status_text']; ?>",
+                icon: "<?php echo $_SESSION['status_code']; ?>",
+                button: "<?php echo $_SESSION['status_btn']; ?>",
+            });
+            </script>
+            
+            <?php
+            unset($_SESSION['status']);
+            }
+        ?>
