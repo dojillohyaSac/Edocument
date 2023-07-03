@@ -94,8 +94,11 @@ session_start();
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-floating mt-3">
-                                    <input  class="form-control" type="text" name="username" placeholder="Username" required>
+                                    <input  class="form-control" type="text" name="username" id="username" placeholder="Username" required>
                                     <label class="form-text" id="floatingInput">Username</label>
+                                    <div id="user-label">
+
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -340,6 +343,31 @@ session_start();
                 label.classList = "form-label fs-6 text-danger";
                 document.getElementById("registerBtn").type = "button";
             }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#username").keyup(function(){
+            var input = $(this).val();
+
+            console.log(input);
+            
+            if (input == null || input == "") {
+                document.getElementById('user-label').setAttribute("hidden", "hidden");
+            }else{
+                document.getElementById('user-label').removeAttribute("hidden");
+                $.ajax({
+                url: 'unique_username.php',
+                type: "POST",
+                data: {input:input},
+                success: function (res) {
+                    $('#user-label').html(res);
+                }
+                })
+            }
+
         });
     });
 </script>
