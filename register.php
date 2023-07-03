@@ -352,7 +352,7 @@ session_start();
         $("#username").keyup(function(){
             var input = $(this).val();
 
-            console.log(input);
+            // console.log(input);
             
             if (input == null || input == "") {
                 document.getElementById('user-label').setAttribute("hidden", "hidden");

@@ -118,12 +118,12 @@ include('includes/side_nav.php');
                                             </div>
                                         <!-- </div> -->
                                     </div>
-                                    <div class="col-6 mt-3">
-                                        <p><a class="link-opacity-100 form-text" href="#">Change Password?</a></p>
+                                    <div class="col-6 mt-5">
+                                        <p><a class="link-opacity-100 form-text" href="#">Forgot Password?</a></p>
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-success mt-5" name="updateBtn" id="updateBtn"><i class="fas fa-pen-to-square"></i> Update Profile</button>
+                                <button type="submit" class="btn btn-success mt-4" name="updateBtn" id="updateBtn"><i class="fas fa-pen-to-square"></i> Update Profile</button>
                             </form>
                             <?php
                                 }
