@@ -21,7 +21,7 @@ include('includes/side_nav.php');
                             Request Form
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="#" enctype="multipart/form-data">
+                            <form method="POST" action="clientDataCode.php" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-4 mt-3">
                                         <!-- <div class="form-floating mt-3"> -->
@@ -124,11 +124,12 @@ include('includes/side_nav.php');
                         <div class="card-header">
                             Upload Requirements
                         </div>
-                        <div class="card-body" id="docutype">
-                            <!-- <form method="POST" action="#" enctype="multipart/form-data"> -->
+                        <div class="card-body" >
+                            <div id="docutype">
                                 
-
-                            
+                            </div>
+                            <button type="submit" class="btn btn-warning mt-3 mb-4" name="sendRequest" id="sendRequest"><i class="fas fa-paper-plane"></i> Send Request</button>
+                        </form>
                         </div>
                     </div>
                 </div>

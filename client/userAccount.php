@@ -119,7 +119,7 @@ include('includes/side_nav.php');
                                         <!-- </div> -->
                                     </div>
                                     <div class="col-6 mt-5">
-                                        <p><a class="link-opacity-100 form-text" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Forgot Password?</a></p>
+                                        <p><a class="link-opacity-100 form-text" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#changePassword">Change Password</a></p>
                                     </div>
                                 </div>
 
@@ -135,7 +135,7 @@ include('includes/side_nav.php');
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="changePassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                     <div class="modal-header">

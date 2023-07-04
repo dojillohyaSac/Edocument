@@ -104,4 +104,18 @@ if (isset($_POST['changePS'])) {
     }
 
 }
+
+if (isset($_POST['sendRequest'])) {
+    $id = filter_input(INPUT_POST,'IDNumber');
+    $firstname = filter_input(INPUT_POST,'FirstName');
+    $lastname = filter_input(INPUT_POST,'LastName');
+    $middlename = filter_input(INPUT_POST, 'MiddleName');
+    $address = filter_input(INPUT_POST,'address');
+    $username = filter_input(INPUT_POST,'username');
+    $dob = filter_input(INPUT_POST, 'dob');
+    $contactNum = filter_input(INPUT_POST,'contactNum');
+    $email = filter_input(INPUT_POST,'email');
+
+    // echo "HelloWorld";
+}
 ?>

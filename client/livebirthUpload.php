@@ -48,6 +48,3 @@
         </div>
     </div>
     
-
-    <button type="submit" class="btn btn-warning mt-3 mb-4" name="sendRequest" id="sendRequest"><i class="fas fa-paper-plane"></i> Send Request</button>
-</form>
