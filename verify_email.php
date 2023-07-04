@@ -104,7 +104,7 @@ if (isset($_GET['token'])) {
                 $_SESSION['status_text'] = "Your Account has been verified Successfully.";
                 $_SESSION['status_code'] = "success";
                 $_SESSION['status_btn'] = "Done";
-                header("Location: register");
+                header("Location: index");
                 exit (0);
             }else {
 
@@ -114,7 +114,7 @@ if (isset($_GET['token'])) {
                 $_SESSION['status_text'] = "Account cannot be verified. Request Again.";
                 $_SESSION['status_code'] = "error";
                 $_SESSION['status_btn'] = "OK";
-                header("Location: register");
+                header("Location: index");
                 exit (0);
             }
         }else {
@@ -122,7 +122,7 @@ if (isset($_GET['token'])) {
             $_SESSION['status_text'] = "Your Account has been verified already. Please Log in.";
             $_SESSION['status_code'] = "warning";
             $_SESSION['status_btn'] = "OK";
-            header("Location: register");
+            header("Location: index");
             exit (0);
         }
     }else {
@@ -130,7 +130,7 @@ if (isset($_GET['token'])) {
         $_SESSION['status_text'] = "This token does not exists. Try Again.";
         $_SESSION['status_code'] = "warning";
         $_SESSION['status_btn'] = "OK";
-        header("Location: register");
+        header("Location: index");
         exit (0);
     }
 }

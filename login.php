@@ -34,18 +34,25 @@ session_start();
                 <div class="card-body">
                     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" id="username">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" id="username" required>
                         <label for="floatingInput"><span class="glyphicon glyphicon-name"></span><i class="fa fa-user"></i> Username</label>
                     </div>
                     <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" id="password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <span  hidden="hidden" class="fa fa-fw field-icon toggle-password fa-eye" style="position: absolute; right: 15px; transform:translate(0, -50%); top: 50%; cursor: pointer;" id="icon"></span>
                         <label for="floatingPassword"><span class="glyphicon glyphicon-name"></span><i class="fa fa-lock"></i> Password</label>
                     </div>
 
                     <div class="text-start my-3">
                         <p class="mt-3 mb-3 text-muted"><a href="forgot_password">Forgot Password?</a></p>
                     </div>
-                    <button class="btn btn-primary w-100 py-2" type="submit" name="loginBtn" id="loginBtn">Log in</button>
+                    <button class="btn btn-primary w-100 py-2 mb-2" type="submit" name="loginBtn" id="loginBtn">Log in</button>
+
+                    <hr>
+                    <div class="text-center">
+                        <p class="mt-3 mb-3 text-muted">Account not Verified? <a href="resend_verification.php">Verify</a></p>
+                        <p class="mt-3 mb-3 text-muted ">Don't have account? <a href="register">Register</a></p>
+                    </div>
                 </div>
             </div>
         </form>
@@ -72,5 +79,35 @@ session_start();
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+
+<!-- Show Password Login -->
+<script type="text/javascript">
+            $(document).ready(function(){
+              $("#floatingPassword").keyup(function(){
+                  var input = $(this).val();
+
+                  let element = document.getElementById("icon");
+                  let hidden = element.getAttribute("hidden");
+
+                   if (input == null || input == "") {
+                    element.setAttribute("hidden", "hidden");
+                   } 
+                    else{
+                      element.removeAttribute("hidden");
+                   }
+              });
+            });
+        </script>
+
+
+<script>
+  const togglePassword = document.querySelector('.toggle-password');
+  const password = document.querySelector('#floatingPassword');
+  togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('fa-eye-slash');
+  });
+</script>
 
 </html>

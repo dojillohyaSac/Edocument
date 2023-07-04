@@ -66,33 +66,35 @@ function sendemail_verify($lname,$email,$verifyCode){
                     <p class='text-center fs-6 text-white'>Copyrights © eDocument: Online Application and Document Tracking and Repository System. All Rights Reserved</p>
                 </div>
             </div>
-        </div>
     ";
     $mail->Body = $email_template;
     $mail->send();
     // echo 'Message has been sent';
 }
 
-// if (isset($_POST['loginBtn'])) {
+if (isset($_POST['adminLogin'])) {
     
-//     $username = $_POST['username'];
-//     $password = $_POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-//     $login_query = "SELECT * FROM `admin` WHERE `username` = '$username' AND `password` = '$password' LIMIT 1";
-//     $login_query_run = mysqli_query($conn, $login_query);
+    $login_query = "SELECT * FROM `admin` WHERE `username` = '$username' AND `password` = '$password' LIMIT 1";
+    $login_query_run = mysqli_query($conn, $login_query);
 
-//     if (mysqli_num_rows($login_query_run)> 0) {
-//         $_SESSION['logged'] = "Logged in successfully";
-//         $_SESSION['logged_icon'] = "success";
-//         header("Location: admin/dashboard");
-//     }else {
-//         $_SESSION['status'] = "Wrong Username or Password";
-//         $_SESSION['status_text'] = "Please check your credentials.";
-//         $_SESSION['status_code'] = "error";
-//         $_SESSION['status_btn'] = "ok";
-//         header("Location: login");
-//     }
-// }
+    if (mysqli_num_rows($login_query_run)> 0) {
+        $_SESSION['admin_auth'] = TRUE;
+        $_SESSION['logged'] = "Logged in successfully";
+        $_SESSION['logged_icon'] = "success";
+        header("Location: admin/dashboard");
+    }else {
+        $_SESSION['set'] = "show";
+        $_SESSION['id'] = $username;
+        $_SESSION['status'] = "Wrong Username or Password";
+        $_SESSION['status_text'] = "Please check your credentials.";
+        $_SESSION['status_code'] = "error";
+        $_SESSION['status_btn'] = "ok";
+        header("Location: index");
+    }
+}
 
 if (isset($_POST['loginBtn'])) {
     

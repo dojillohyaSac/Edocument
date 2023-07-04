@@ -119,7 +119,7 @@ include('includes/side_nav.php');
                                         <!-- </div> -->
                                     </div>
                                     <div class="col-6 mt-5">
-                                        <p><a class="link-opacity-100 form-text" href="#">Forgot Password?</a></p>
+                                        <p><a class="link-opacity-100 form-text" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Forgot Password?</a></p>
                                     </div>
                                 </div>
 
@@ -130,6 +130,71 @@ include('includes/side_nav.php');
                                 
                             ?>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel"><span class="glyphicon glyphicon-name"></span><i class="fa fa-lock"></i> Change Password</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST" action="clientDataCode.php">
+                    <div class="modal-body">
+                        <div class="mb-3 row">
+                            <label for="current" class="col-sm-4 col-form-label">Current Password</label>
+                            <div class="col-sm-8">
+                            <input type="password" class="form-control" id="current" name="currentPS">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="password" class="col-sm-4 col-form-label"> New Password</label>
+                            <div class="col-sm-8">
+                            <input type="password" class="form-control" id="ps" name="newPS">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="cpassword" class="col-sm-4 col-form-label"> Confirm Password</label>
+                            <div class="col-sm-8">
+                            <input type="password" class="form-control" id="cpassword" name="confirmNewPS">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-check mb-2 mt-1 mx-3">
+                        <input class="form-check-input showPassword" type="checkbox">
+                        <label class="form-check-label">
+                        Show Password
+                        </label>
+                    </div>
+                        <script>
+                                var toggleAdmin = document.querySelector('.showPassword');
+                                var Current = document.querySelector('#current');
+                                var Password = document.querySelector('#ps');
+                                var Cpassword = document.querySelector('#cpassword');
+
+                                toggleAdmin.addEventListener("click", handleToggleClick, false);
+
+                                function handleToggleClick(event) {
+                                if (this.checked) {
+                                    console.warn("Change input 'type' to: text")
+                                    Current.type = 'text';
+                                    Password.type = 'text';
+                                    Cpassword.type = 'text';
+                                }else{
+                                    console.warn("Change input 'type' to: password")
+                                    Current.type = 'password';
+                                    Password.type = 'password';
+                                    Cpassword.type = 'password';
+                                }
+                                }
+                            </script>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger" name="changePS"><span class="glyphicon glyphicon-name"></span><i class="fa fa-share"></i> Change Password</button>
+                    </div>
+                    </form>
                     </div>
                 </div>
             </div>

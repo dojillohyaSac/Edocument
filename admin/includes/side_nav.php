@@ -25,6 +25,11 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                     Users
                 </a>
+                <hr>
+                <a class="nav-link" href="/eDocument/logout.php">
+                    <div class="sb-nav-link-icon"><i class="fas fa-arrow-right-from-bracket"></i></div>
+                    Log Out
+                </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">

@@ -1,5 +1,5 @@
 <?php
-// include('authentication.php');
+include('authentication.php');
 include('includes/config.php');
 include('includes/header.php');
 include('includes/navbar.php');

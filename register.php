@@ -178,6 +178,7 @@ session_start();
 
                             <hr class="my-4">
                             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+                            <p class="mt-3 mb-3 text-muted ">Already a User? <a href="login">Login</a></p>
                         </form>
                     </div>
                 </div>
