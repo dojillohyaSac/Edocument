@@ -121,6 +121,7 @@ if (isset($_POST['uploadBtn'])) {
     $regStatus = filter_input(INPUT_POST,'regStatus');
     $cfp = filter_input(INPUT_POST, 'cfp');
     $idCard = $_FILES['idCard']['name'];
+    $currentDate = date("Y-m-d");
 
     //Documents
     $npsa = $_FILES['npsa']['name'];
@@ -139,23 +140,131 @@ if (isset($_POST['uploadBtn'])) {
     $divorce = $_FILES['divorce']['name'];
     $passport = $_FILES['passport']['name'];
 
-    $insert_req = "INSERT INTO `admin_request`(`DocuType`) VALUES ('$npsa')";
-    $insert_req_run = mysqli_query($conn, $insert_req);
+    if ($tod == "Live Birth Certificate") {
 
-    if ($insert_req_run) {
-        move_uploaded_file($_FILES["npsa"]["tmp_name"], "assets/files/".$_FILES["npsa"]["name"]);
-        $_SESSION['status'] = "Nice!";
-        $_SESSION['status_text'] = "File Uploaded.";
-        $_SESSION['status_code'] = "success";
-        $_SESSION['status_btn'] = "Done";
-        header("Location: clientRequest");
+        $sql = ("INSERT INTO `requests`(`cUsername`, `rFirstname`, `rMiddlename`, `rLastname`, `rAge`, `rSex`, `rEmail`, `idType`, `validID`, `tod`, `reg_status`) VALUES ('$username','$firstname','$middlename','$lastname','$age','$sex','$email','$id_type','$idCard','$tod','$regStatus')");
+        if ($conn->query($sql)) {
+            $last_id = mysqli_insert_id($conn);
+
+            if ($last_id) {
+                $code = "LB-".$currentDate."-".$last_id;
+                $update = "UPDATE `requests` SET `DocuCode`='$code' WHERE `id` = '$last_id'";
+                $code_insert = mysqli_query($conn, $update);
+
+                move_uploaded_file($_FILES["idCard"]["tmp_name"], "assets/files/".$_FILES["idCard"]["name"]);
+                
+                if ($code_insert) {
+                    $docu = "INSERT INTO `documents`(`DocuCode`, `username`, `Docu_type`, `nso_psa`, `baptismal_cert`, `marriage_cert_Parents`, `cedula`, `birth_cert_Sibling`, `joint_affidavit`, `brgy_cert`) VALUES ('$code','$username','$tod','$npsa','$baptismal','$mcp','$cedula','$birthCerti','$affidavit','$brgyCerti')";
+                    $upload = mysqli_query($conn, $docu);
+
+                    if ($upload) {
+                        move_uploaded_file($_FILES["npsa"]["tmp_name"], "assets/files/".$_FILES["npsa"]["name"]);
+                        move_uploaded_file($_FILES["baptismal"]["tmp_name"], "assets/files/".$_FILES["baptismal"]["name"]);
+                        move_uploaded_file($_FILES["mcp"]["tmp_name"], "assets/files/".$_FILES["mcp"]["name"]);
+                        move_uploaded_file($_FILES["cedula"]["tmp_name"], "assets/files/".$_FILES["cedula"]["name"]);
+                        move_uploaded_file($_FILES["birthCerti"]["tmp_name"], "assets/files/".$_FILES["birthCerti"]["name"]);
+                        move_uploaded_file($_FILES["affidavit"]["tmp_name"], "assets/files/".$_FILES["affidavit"]["name"]);
+                        move_uploaded_file($_FILES["brgyCerti"]["tmp_name"], "assets/files/".$_FILES["brgyCerti"]["name"]);
+
+                        $_SESSION['status'] = "Request Successful!";
+                        $_SESSION['status_text'] = "Request sent to the Admin for Processing.";
+                        $_SESSION['status_code'] = "success";
+                        $_SESSION['status_btn'] = "Done";
+                        header("Location: clientRequest");
+
+                    }
+                }else {
+                    $_SESSION['status'] = "Request Unsuccessful!";
+                    $_SESSION['status_text'] = "Data cannot be proceed! Please check you details again.";
+                    $_SESSION['status_code'] = "error";
+                    $_SESSION['status_btn'] = "OK";
+                    header("Location: clientRequest");
+                }
+
+            }else {
+                $_SESSION['status'] = "Request Unsuccessful!";
+                $_SESSION['status_text'] = "Data cannot be proceed! Please check you details again.";
+                $_SESSION['status_code'] = "error";
+                $_SESSION['status_btn'] = "OK";
+                header("Location: clientRequest");
+            }
+            
+        }else {
+            $_SESSION['status'] = "Failed!";
+            $_SESSION['status_text'] = "Cannot Upload File.";
+            $_SESSION['status_code'] = "error";
+            $_SESSION['status_btn'] = "ok";
+            header("Location: clientRequest");
+        }
+    }elseif ($tod == "Marriage Certificate") {
+        
+        $sql = ("INSERT INTO `requests`(`cUsername`, `rFirstname`, `rMiddlename`, `rLastname`, `rAge`, `rSex`, `rEmail`, `idType`, `validID`, `tod`, `reg_status`) VALUES ('$username','$firstname','$middlename','$lastname','$age','$sex','$email','$id_type','$idCard','$tod','$regStatus')");
+        if ($conn->query($sql)) {
+            $last_id = mysqli_insert_id($conn);
+
+            if ($last_id) {
+                $code = "MC-".$currentDate."-".$last_id;
+                $update = "UPDATE `requests` SET `DocuCode`='$code' WHERE `id` = '$last_id'";
+                $code_insert = mysqli_query($conn, $update);
+
+                move_uploaded_file($_FILES["idCard"]["tmp_name"], "assets/files/".$_FILES["idCard"]["name"]);
+                
+                if ($code_insert) {
+                    $docu = "INSERT INTO `documents`(`DocuCode`, `username`, `Docu_type`, `cedula`, `cenomar_both`, `birth_cert_both`, `tree_planting`, `mar_counseling`, `parent_sign_m`, `parent_sign_f`, `consent_sign`, `cert_legal_capacity`, `divorce_paper`, `passport`) VALUES ('$code','$username','$tod','$cedula','$cenomar','$birthCerti','$ctp','$cfp','$advice_sign_m','$advice_sign_f','$consent','$clcm','$divorce','$passport')";
+                    $upload = mysqli_query($conn, $docu);
+
+                    if ($upload) {
+                        move_uploaded_file($_FILES["cenomar"]["tmp_name"], "assets/files/".$_FILES["cenomar"]["name"]);
+                        move_uploaded_file($_FILES["ctp"]["tmp_name"], "assets/files/".$_FILES["ctp"]["name"]);
+                        move_uploaded_file($_FILES["mcp"]["tmp_name"], "assets/files/".$_FILES["mcp"]["name"]);
+                        move_uploaded_file($_FILES["cedula"]["tmp_name"], "assets/files/".$_FILES["cedula"]["name"]);
+                        move_uploaded_file($_FILES["birthCerti"]["tmp_name"], "assets/files/".$_FILES["birthCerti"]["name"]);
+                        move_uploaded_file($_FILES["advice_sign_m"]["tmp_name"], "assets/files/".$_FILES["advice_sign_m"]["name"]);
+                        move_uploaded_file($_FILES["advice_sign_f"]["tmp_name"], "assets/files/".$_FILES["advice_sign_f"]["name"]);
+                        move_uploaded_file($_FILES["consent"]["tmp_name"], "assets/files/".$_FILES["consent"]["name"]);
+                        move_uploaded_file($_FILES["clcm"]["tmp_name"], "assets/files/".$_FILES["clcm"]["name"]);
+                        move_uploaded_file($_FILES["divorce"]["tmp_name"], "assets/files/".$_FILES["divorce"]["name"]);
+                        move_uploaded_file($_FILES["passport"]["tmp_name"], "assets/files/".$_FILES["passport"]["name"]);
+
+                        $_SESSION['status'] = "Request Successful!";
+                        $_SESSION['status_text'] = "Request sent to the Admin for Processing.";
+                        $_SESSION['status_code'] = "success";
+                        $_SESSION['status_btn'] = "Done";
+                        header("Location: clientRequest");
+
+                    }
+                }else {
+                    $_SESSION['status'] = "Request Unsuccessful!";
+                    $_SESSION['status_text'] = "Data cannot be proceed! Please check you details again.";
+                    $_SESSION['status_code'] = "error";
+                    $_SESSION['status_btn'] = "OK";
+                    header("Location: clientRequest");
+                }
+
+            }else {
+                $_SESSION['status'] = "Request Unsuccessful!";
+                $_SESSION['status_text'] = "Data cannot be proceed! Please check you details again.";
+                $_SESSION['status_code'] = "error";
+                $_SESSION['status_btn'] = "OK";
+                header("Location: clientRequest");
+            }
+            
+        }else {
+            $_SESSION['status'] = "Failed!";
+            $_SESSION['status_text'] = "Cannot Upload File.";
+            $_SESSION['status_code'] = "error";
+            $_SESSION['status_btn'] = "ok";
+            header("Location: clientRequest");
+        }
     }else {
-        $_SESSION['status'] = "Failed!";
-        $_SESSION['status_text'] = "Cannot Upload File.";
+        $_SESSION['status'] = "Unkown Error!";
+        $_SESSION['status_text'] = "Cannot Complete Request.";
         $_SESSION['status_code'] = "error";
         $_SESSION['status_btn'] = "ok";
-        header("Location: clientRequest");
+        header("Location: clientRequest"); 
     }
+
+    
 
 
         // echo "HelloWorld";

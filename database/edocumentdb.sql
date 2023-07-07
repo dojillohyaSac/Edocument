@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2023 at 11:48 AM
+-- Generation Time: Jul 07, 2023 at 06:30 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,23 +43,6 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_request`
---
-
-CREATE TABLE `admin_request` (
-  `id` int(11) NOT NULL,
-  `DocuCode` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `DocuType` varchar(255) NOT NULL,
-  `RequestAction` varchar(255) NOT NULL,
-  `Date_of_Request` date NOT NULL DEFAULT current_timestamp(),
-  `Status` int(11) NOT NULL DEFAULT 0,
-  `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `clients_acc`
 --
 
@@ -87,7 +70,7 @@ CREATE TABLE `clients_acc` (
 --
 
 INSERT INTO `clients_acc` (`id`, `cFirstname`, `cMiddlename`, `cLastname`, `cUsername`, `cPassword`, `cDOB`, `cAddress`, `cEmail`, `cContactNumber`, `cPicture`, `verifyCode`, `password_token`, `verify_status`, `admin_status`, `date_created`) VALUES
-(1, 'Hya', 'Genodepa', 'Dojillo', 'HelloWorld', 'Hello_01', '2000-01-01', 'skajdkajskdj', 'yangyangdojillo01@gmail.com', '09123456789', '2144314.png', '3a3c2d15838785cf6f29902d00efe15d', '', 1, 1, '2023-07-01');
+(1, 'Hya', 'Genodepa', 'Dojillo', 'HelloWorld', 'mine_01', '2000-01-01', 'skajdkajskdj', 'yangyangdojillo01@gmail.com', '09123456789', '8cEbkjpni.jpg', '3a3c2d15838785cf6f29902d00efe15d', 'b590f68424c134849319c2cce6b0ee2ceDoc', 1, 1, '2023-07-01');
 
 -- --------------------------------------------------------
 
@@ -97,11 +80,11 @@ INSERT INTO `clients_acc` (`id`, `cFirstname`, `cMiddlename`, `cLastname`, `cUse
 
 CREATE TABLE `documents` (
   `id` int(11) NOT NULL,
-  `Docu_id` varchar(255) NOT NULL,
+  `DocuCode` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `Docu_type` varchar(255) NOT NULL,
   `nso_psa` varchar(255) NOT NULL,
-  `baptismal_cert` int(11) NOT NULL,
+  `baptismal_cert` varchar(255) NOT NULL,
   `marriage_cert_Parents` varchar(255) NOT NULL,
   `cedula` varchar(255) NOT NULL,
   `voters_cert` varchar(255) NOT NULL,
@@ -112,11 +95,53 @@ CREATE TABLE `documents` (
   `birth_cert_both` varchar(255) NOT NULL,
   `tree_planting` varchar(255) NOT NULL,
   `mar_counseling` varchar(255) NOT NULL,
+  `parent_sign_m` varchar(255) NOT NULL,
+  `parent_sign_f` varchar(255) NOT NULL,
+  `consent_sign` varchar(255) NOT NULL,
   `cert_legal_capacity` varchar(255) NOT NULL,
   `divorce_paper` varchar(255) NOT NULL,
   `passport` varchar(255) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `documents`
+--
+
+INSERT INTO `documents` (`id`, `DocuCode`, `username`, `Docu_type`, `nso_psa`, `baptismal_cert`, `marriage_cert_Parents`, `cedula`, `voters_cert`, `birth_cert_Sibling`, `joint_affidavit`, `brgy_cert`, `cenomar_both`, `birth_cert_both`, `tree_planting`, `mar_counseling`, `parent_sign_m`, `parent_sign_f`, `consent_sign`, `cert_legal_capacity`, `divorce_paper`, `passport`, `date_created`) VALUES
+(1, 'LB-2023-07-07-1', 'HelloWorld', 'Live Birth Certificate', 'batman.pub', '0', 'ConPlan-MRCS-Final.docx', '20220927_190122.jpg', '', '20190807_095724-1.jpg', 'farm.pub', 'DOJILLO-Application-Letter.docx', '', '', '', '', '', '', '', '', '', '', '2023-07-07 16:13:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requests`
+--
+
+CREATE TABLE `requests` (
+  `id` int(11) NOT NULL,
+  `DocuCode` varchar(255) NOT NULL,
+  `cUsername` varchar(255) NOT NULL,
+  `rFirstname` varchar(255) NOT NULL,
+  `rMiddlename` varchar(255) NOT NULL,
+  `rLastname` varchar(255) NOT NULL,
+  `rAge` int(11) NOT NULL,
+  `rSex` varchar(50) NOT NULL,
+  `rEmail` varchar(255) NOT NULL,
+  `idType` varchar(255) NOT NULL,
+  `validID` varchar(255) NOT NULL,
+  `tod` varchar(255) NOT NULL COMMENT 'Type of Document',
+  `reg_status` int(11) NOT NULL COMMENT 'yes = 1, no = 0',
+  `dor` date NOT NULL DEFAULT current_timestamp() COMMENT 'Date of Request',
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT 'true = 1, false = 0',
+  `date_created` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `requests`
+--
+
+INSERT INTO `requests` (`id`, `DocuCode`, `cUsername`, `rFirstname`, `rMiddlename`, `rLastname`, `rAge`, `rSex`, `rEmail`, `idType`, `validID`, `tod`, `reg_status`, `dor`, `status`, `date_created`) VALUES
+(1, 'LB-2023-07-07-1', 'HelloWorld', 'Hya Cynth', 'Genodepa', 'Dojillo', 22, 'Female', 'yangyangdojillo01@gmail.com', 'National ID', 'Certi.jpg', 'Live Birth Certificate', 0, '2023-07-08', 0, '2023-07-08');
 
 --
 -- Indexes for dumped tables
@@ -126,12 +151,6 @@ CREATE TABLE `documents` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `admin_request`
---
-ALTER TABLE `admin_request`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -147,6 +166,12 @@ ALTER TABLE `documents`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -155,12 +180,6 @@ ALTER TABLE `documents`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `admin_request`
---
-ALTER TABLE `admin_request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `clients_acc`
@@ -172,7 +191,13 @@ ALTER TABLE `clients_acc`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

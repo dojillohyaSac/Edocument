@@ -32,7 +32,7 @@ include('includes/side_nav.php');
                     <tbody>
                         <!-- <?php
 
-                            $sql = "SELECT * FROM `admin_request`";
+                            $sql = "SELECT * FROM `requests`";
                             $query_run = $conn->query($sql) or die($conn->error);
                             while($row=$query_run->fetch_assoc())
                             {

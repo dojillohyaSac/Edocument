@@ -119,7 +119,6 @@ include('includes/side_nav.php');
                         </fieldset>
 
                         <button type="button" class="btn btn-warning mt-5 mb-4" name="proceedBtn" id="proceedBtn">Proceed <i class="fas fa-chevron-right"></i></button>
-                    <!-- </form> -->
                 </div>
             </div>
 
@@ -130,7 +129,6 @@ include('includes/side_nav.php');
                     Upload Requirements
                 </div>
                 <div class="card-body">
-                    <!-- <form method="POST" action="clientDataCode.php" enctype="multipart/form-data"> -->
                         <div class="row mb-3">
                             <label for="birthCerti" class="col-sm-3 col-form-label">Birth Certificate</label>
                             <div class="col-sm-9">
@@ -215,7 +213,6 @@ include('includes/side_nav.php');
                         </div>
 
                         <button type="submit" class="btn btn-warning mt-5 mb-4" name="uploadBtn" id="uploadBtn">Send Request <i class="fas fa-paper-plane"></i></button>
-                    <!-- </form> -->
                 </div>
             </div>
 
@@ -225,7 +222,6 @@ include('includes/side_nav.php');
                     Upload Requirements
                 </div>
                 <div class="card-body">
-                    <!-- <form method="POST" action="clientDataCode.php" enctype="multipart/form-data"> -->
                         <div class="row mb-3">
                             <label for="npsa" class="col-sm-4 col-form-label">Negative PSA Certification</label>
                             <div class="col-sm-8">
@@ -256,8 +252,8 @@ include('includes/side_nav.php');
                         <div class="row mb-3">
                             <label for="birthCerti" class="col-sm-4 col-form-label">Birth Certificate (Siblings)</label>
                             <div class="col-sm-8">
-                                <input type="file" id="birthCerti" class="form-control" multiple name="birthCerti">
-                                <small class="text-dark fst-italic">Can upload more than one file.</small>
+                                <input type="file" id="birthCerti" class="form-control" name="birthCerti">
+                                <small class="text-dark fst-italic">All Birth Certificate(s) must be in one file ONLY.</small>
                             </div>
                         </div>
 

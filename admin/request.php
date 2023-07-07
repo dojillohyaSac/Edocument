@@ -19,38 +19,37 @@ include('includes/side_nav.php');
                 <table class="table table-bordered table-striped table-hovered table-light" id="table">
                     <thead class="table table-dark">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">User ID</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Rank</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Logged In</th>
-                            <th scope="col">Logged Out</th>
+                            <th scope="col">Type of Document</th>
+                            <th scope="col">Registration Status</th>
+                            <th scope="col">Date of Request</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <?php
+                        <?php
 
-                            $sql = "SELECT * FROM `admin_request`";
+                            $sql = "SELECT * FROM `requests` WHERE `reg_status` = 0 AND `status` = 0 LIMIT 1";
                             $query_run = $conn->query($sql) or die($conn->error);
                             while($row=$query_run->fetch_assoc())
                             {
                         ?>
                         <tr>
-                            <td>  <?= $row['id']?></td>
-                            <td> <?= $row['userID']?></td>
-                            <td> <?= $row['lastname']?></td>
-                            <td> <?= $row['firstname']?></td>
-                            <td> <?= $row['rank']?></td>
-                            <td> <?= $row['email']?></td>
-                            <td> <?= $row['logged_in']?></td>
-                            <td> <?= $row['logged_out']?></td>
-
+                            <td>  <?= $row['DocuCode']?></td>
+                            <td> <?= $row['cUsername']?></td>
+                            <td> <?= $row['rLastname'].", ".$row['rFirstname']?></td>
+                            <td> <?= $row['rEmail']?></td>
+                            <td> <?= $row['tod']?></td>
+                            <td> <?= $row['reg_status']?></td>
+                            <td> <?= $row['dor']?></td>
+                            <td><button type="button" class="btn btn-primary">Hello</button></td>
                         </tr>
                         <?php
                             }
-                        ?> -->
+                        ?>
                     </tbody>
                 </table>
             </div>
