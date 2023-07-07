@@ -264,10 +264,5 @@ if (isset($_POST['uploadBtn'])) {
         header("Location: clientRequest"); 
     }
 
-    
-
-
-        // echo "HelloWorld";
-
 }
 ?>
