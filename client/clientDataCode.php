@@ -105,17 +105,60 @@ if (isset($_POST['changePS'])) {
 
 }
 
-if (isset($_POST['sendRequest'])) {
+
+if (isset($_POST['uploadBtn'])) {
+
     $id = filter_input(INPUT_POST,'IDNumber');
     $firstname = filter_input(INPUT_POST,'FirstName');
     $lastname = filter_input(INPUT_POST,'LastName');
     $middlename = filter_input(INPUT_POST, 'MiddleName');
-    $address = filter_input(INPUT_POST,'address');
+    $age = filter_input(INPUT_POST,'age');
     $username = filter_input(INPUT_POST,'username');
-    $dob = filter_input(INPUT_POST, 'dob');
-    $contactNum = filter_input(INPUT_POST,'contactNum');
+    $sex = filter_input(INPUT_POST, 'sex');
+    $id_type = filter_input(INPUT_POST,'id_type');
     $email = filter_input(INPUT_POST,'email');
+    $tod = filter_input(INPUT_POST,'tod');
+    $regStatus = filter_input(INPUT_POST,'regStatus');
+    $cfp = filter_input(INPUT_POST, 'cfp');
+    $idCard = $_FILES['idCard']['name'];
 
-    // echo "HelloWorld";
+    //Documents
+    $npsa = $_FILES['npsa']['name'];
+    $baptismal = $_FILES['baptismal']['name'];
+    $mcp = $_FILES['mcp']['name'];
+    $cedula = $_FILES['cedula']['name'];
+    $birthCerti = $_FILES['birthCerti']['name'];
+    $affidavit = $_FILES['affidavit']['name'];
+    $brgyCerti = $_FILES['brgyCerti']['name'];
+    $cenomar = $_FILES['cenomar']['name'];
+    $ctp = $_FILES['ctp']['name'];
+    $advice_sign_m = $_FILES['advice_sign_m']['name'];
+    $advice_sign_f = $_FILES['advice_sign_f']['name'];
+    $consent = $_FILES['consent']['name'];
+    $clcm = $_FILES['clcm']['name'];
+    $divorce = $_FILES['divorce']['name'];
+    $passport = $_FILES['passport']['name'];
+
+    $insert_req = "INSERT INTO `admin_request`(`DocuType`) VALUES ('$npsa')";
+    $insert_req_run = mysqli_query($conn, $insert_req);
+
+    if ($insert_req_run) {
+        move_uploaded_file($_FILES["npsa"]["tmp_name"], "assets/files/".$_FILES["npsa"]["name"]);
+        $_SESSION['status'] = "Nice!";
+        $_SESSION['status_text'] = "File Uploaded.";
+        $_SESSION['status_code'] = "success";
+        $_SESSION['status_btn'] = "Done";
+        header("Location: clientRequest");
+    }else {
+        $_SESSION['status'] = "Failed!";
+        $_SESSION['status_text'] = "Cannot Upload File.";
+        $_SESSION['status_code'] = "error";
+        $_SESSION['status_btn'] = "ok";
+        header("Location: clientRequest");
+    }
+
+
+        // echo "HelloWorld";
+
 }
 ?>
