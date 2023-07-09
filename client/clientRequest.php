@@ -27,20 +27,20 @@ include('includes/side_nav.php');
                             <div class="col-4 mt-3">
                                 <!-- <div class="form-floating mt-3"> -->
                                 <label class="form-label" id="floatingInput">First Name</label>
-                                <input for="floatingInput" class="form-control" type="text" name="FirstName">
+                                <input for="floatingInput" class="form-control" type="text" name="FirstName" required>
                                 <input for="floatingInput" class="form-control" type="hidden" name="username" value="<?php echo $_SESSION['auth_user']['username'];?>">
                                 <!-- </div> -->
                             </div>
                             <div class="col-4 mt-3">
                                 <!-- <div class="form-floating mt-3"> -->
                                 <label class="form-label" id="floatingInput">Middle Name</label>
-                                <input for="floatingInput" class="form-control" type="text" name="MiddleName">
+                                <input for="floatingInput" class="form-control" type="text" name="MiddleName" required>
                                 <!-- </div> -->
                             </div>
                             <div class="col-4 mt-3">
                                 <!-- <div class="form-floating mt-3"> -->
                                 <label class="form-label" id="InputLname">Last Name</label>
-                                <input for="InputLname" class="form-control" type="text" name="LastName">
+                                <input for="InputLname" class="form-control" type="text" name="LastName" required>
                                 <!-- </div> -->
                             </div>
                         </div>
@@ -49,7 +49,7 @@ include('includes/side_nav.php');
                             <div class="col-4 mt-3">
                                 <!-- <div class="form-floating mt-3"> -->
                                 <label class="form-label" id="floatingInput">Age</label>
-                                <input  class="form-control" type="text" name="age">
+                                <input  class="form-control" type="text" name="age" required>
                                 <!-- </div> -->
                             </div>
                         </div>
@@ -66,7 +66,7 @@ include('includes/side_nav.php');
                             <div class="col mt-3">
                                 <!-- <div class="form-floating mt-3"> -->
                                 <label class="form-label" id="floatingInput">Email address</label>
-                                <input type="email" class="form-control" for="floatingInput" aria-describedby="emailHelp" name="email" id="email">
+                                <input type="email" class="form-control" for="floatingInput" aria-describedby="emailHelp" name="email" id="email" required>
                                 <!-- <div id="emailHelp" class="form-label">We'll never share your email with anyone else.</div> -->
                                 <!-- </div>-->
                             </div>
@@ -75,7 +75,7 @@ include('includes/side_nav.php');
                         <div class="row">
                             <div class="col-6 mt-3">
                                 <label class="form-label">Valid ID</label>
-                                <select class="form-select form-select" name="id_type" id="id_type">
+                                <select class="form-select form-select" name="id_type" id="id_type" required>
                                     <option value="" selected>Select ID type</option>
                                     <option value="National ID">National ID</option>
                                     <option value="Driver's Licensed">Driver's Licensed</option>
@@ -91,14 +91,14 @@ include('includes/side_nav.php');
                             </div>
                             <div class="col-6 mt-3">
                                 <label for="formFile" class="form-label">Upload ID</label>
-                                <input class="form-control" type="file" id="formFile" name="idCard" id="idCard">
+                                <input class="form-control" type="file" id="formFile" name="idCard" id="idCard" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col mt-3">
                                 <label class="form-label">Type of Document</label>
-                                <select class="form-select" name="tod" id="tod" >
+                                <select class="form-select" name="tod" id=  "tod" required>
                                     <option value="" selected>Select Type of Document</option>
                                     <option value="Live Birth Certificate">Live Birth Certificate</option>
                                     <option value="Marriage Certificate">Marriage Certificate</option>
@@ -318,62 +318,6 @@ include('includes/side_nav.php');
     });
 </script>
 
-<!-- <script type="text/javascript">
-    //Type of Document Change for Upload Requirements Form
-    $('#tod').on('change', function () {
-        var docu = this.value;
-        console.log(docu);
-        
-        if (docu == "Live Birth Certificate") {
-            $.ajax({
-            url: 'livebirthUpload.php',
-            success: function (response) {
-                $('#docutype').html(response);
-            }
-            })
-            
-        } else if (docu == "Marriage Certificate") {
-            $.ajax({
-            url: 'marriageCert.php',
-            success: function (response) {
-                $('#docutype').html(response);
-            }
-            })
-
-        }else if (docu == "Death Certificate") {
-            $.ajax({
-            url: 'deathCert.php',
-            success: function (response) {
-                $('#docutype').html(response);
-            }
-            })
-        }else if (docu == "CENOMAR") {
-            $.ajax({
-            url: 'cenomar.php',
-            success: function (response) {
-                $('#docutype').html(response);
-            }
-            })
-        }else if (docu == "NSO/PSA") {
-            $.ajax({
-            url: 'nso-psa.php',
-            success: function (response) {
-                $('#docutype').html(response);
-            }
-            })
-        }else if (docu == "Affidavit to use Surname of the Father") {
-            $.ajax({
-            url: 'affidavit.php',
-            success: function (response) {
-                $('#docutype').html(response);
-            }
-            })
-        } else{
-            console.log("error");
-        }
-    });
-</script> -->
-
 <script src="js/sweetalert.min.js"></script>
         <?php
             if (isset($_SESSION['status'])){
@@ -391,6 +335,35 @@ include('includes/side_nav.php');
             unset($_SESSION['status']);
             }
         ?>
+
+<script src="js/sweetalert2.all.min.js"></script>
+<?php
+    if (isset($_SESSION['logged'])) {
+?>
+    <script type="text/javascript">
+        const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        });
+
+        Toast.fire({
+        background:'#53a653',
+        color: '#fff',
+        icon: '<?php echo $_SESSION['logged_icon'];?>',
+        title: '<?php echo $_SESSION['logged'];?>'
+        });
+    </script>
+<?php
+  unset($_SESSION['logged']);
+}
+?>
 
 <?php
 include('includes/footer.php');

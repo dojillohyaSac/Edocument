@@ -8,10 +8,10 @@
                     Dashboard
                 </a>
                 <div class="sb-sidenav-menu-heading">Registry</div>
-                <a class="nav-link collapsed" href="document">
+                <!-- <a class="nav-link collapsed" href="document">
                     <div class="sb-nav-link-icon"><i class="fas fa-folder-open"></i></div>
                     Documents
-                </a>
+                </a> -->
                 <a class="nav-link collapsed" href="request">
                     <div class="sb-nav-link-icon"><i class="fas fa-tasks"></i></div>
                     Requests

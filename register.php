@@ -23,8 +23,11 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- css link -->
+    <link rel="stylesheet" href="css/register.css">
 </head>
-<body>
+<body >
     <div class="container mt-5">
         <main>
         <script src="admin/js/sweetalert.min.js"></script>
@@ -59,7 +62,8 @@ session_start();
                 </div>
                 <div class="card-body">
                     <form method="POST" action="loginCode.php" enctype="multipart/form-data">
-                        <h5 class="mb-4">Registration</h5>
+                        
+                       
 
                         <div class="row">
                             <div class="col-4">
@@ -174,7 +178,19 @@ session_start();
                                 }
                             </script>
 
-                            <button class="d-grid gap-2 col-10 mx-auto btn btn-primary mt-3" type="submit" name="registerBtn" id="registerBtn">Register</button>
+                        <div class="container text-center">
+                        <div class="row ">
+                            <div class="col">
+                                <button class="d-grid gap-2 col-10 mx-auto btn btn-dark mt-3" type="submit" name="registerBtn" id="registerBtn">Register</button>
+                            </div>
+                            <div class="col">
+                                <a href="index.php" class="d-grid gap-2 col-10 mx-auto btn btn-dark mt-3">Cancel Registration</a>
+                            </div>
+                            
+                        </div>
+                        </div>
+
+                            
 
                             <hr class="my-4">
                             <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>

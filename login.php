@@ -25,16 +25,29 @@ session_start();
 
     <link rel="stylesheet" href="css/login.css">
 </head>
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
+<body class="d-flex align-items-center py-4 bg-body-tertiary" style="background: linear-gradient(245.59deg, #8b8232 0%, #918835 75.52%);">
+<div class="container ">
+  <div class="row ">
+    <div class="col">
+      <img src="images/login.svg" alt="">
+    </div>
+    <div class="col">
     <main class="form-signin w-100 m-auto">
-        <form method="POST" action="loginCode.php">
-            <center><img class="mb-4" src="images/crc-logo.png" alt="" width="100" height="100"></center>
+        
+        <form method="POST" action="loginCode.php" style="width: 400px; ">
+            
 
             <div class="card">
-                <div class="card-body">
-                    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                <div class="card-body" >
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="index.php"type ="button" class="btn btn-dark"><i class="icon fa-sharp fa-solid fa-circle-left" ></i></a>
+
+                    </div>
+                <center><img class="mb-4" src="images/crc-logo.png" alt="" width="130" height="130"></center>
+                    <div class="text-center"><h1 class="h3 mb-3 fw-normal">Please sign in</h1></div>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" id="username" required>
+                        <input type="text" class="form-control mb-3 border-bottom" id="floatingInput" placeholder="name@example.com" name="username" id="username" required>
                         <label for="floatingInput"><span class="glyphicon glyphicon-name"></span><i class="fa fa-user"></i> Username</label>
                     </div>
                     <div class="form-floating">
@@ -46,7 +59,7 @@ session_start();
                     <div class="text-start my-3">
                         <p class="mt-3 mb-3 text-muted"><a href="forgot_password">Forgot Password?</a></p>
                     </div>
-                    <button class="btn btn-primary w-100 py-2 mb-2" type="submit" name="loginBtn" id="loginBtn">Log in</button>
+                    <button class="btn btn-dark w-100 py-2 mb-2" type="submit" name="loginBtn" id="loginBtn">Log in</button>
 
                     <hr>
                     <div class="text-center">
@@ -57,6 +70,11 @@ session_start();
             </div>
         </form>
     </main>
+    </div>
+    
+  </div>
+</div>
+    
 </body>
 
 <script src="admin/js/sweetalert.min.js"></script>

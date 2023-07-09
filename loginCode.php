@@ -120,7 +120,7 @@ if (isset($_POST['loginBtn'])) {
                     ];
                     $_SESSION['logged'] = "Logged in successfully";
                     $_SESSION['logged_icon'] = "success";
-                    header("Location: client/dashboard");
+                    header("Location: client/clientRequest");
                 }else {
                     $_SESSION['status'] = "Account not Active!";
                     $_SESSION['status_text'] = "Please contact your Civil Registry Admin.";

@@ -21,7 +21,7 @@ include('includes/side_nav.php');
 
                           include('includes/config.php');
 
-                          $query_number = "SELECT `id` FROM `admin_request` WHERE `Status` = 1 ORDER BY `id`";
+                          $query_number = "SELECT `id` FROM `requests` WHERE `Status` = 1 ORDER BY `id`";
                           $query_number_run = mysqli_query($conn, $query_number);
 
                           if ($row = mysqli_num_rows($query_number_run)) {
@@ -41,7 +41,7 @@ include('includes/side_nav.php');
 
                           include('includes/config.php');
 
-                          $query_number = "SELECT `id` FROM `admin_request` WHERE `Status` = 1 ORDER BY `id`";
+                          $query_number = "SELECT `id` FROM `requests` WHERE `Status` = 1 ORDER BY `id`";
                           $query_number_run = mysqli_query($conn, $query_number);
 
                           if ($row = mysqli_num_rows($query_number_run)) {
