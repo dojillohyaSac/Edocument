@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2023 at 06:30 PM
+-- Generation Time: Jul 10, 2023 at 08:32 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -70,7 +70,7 @@ CREATE TABLE `clients_acc` (
 --
 
 INSERT INTO `clients_acc` (`id`, `cFirstname`, `cMiddlename`, `cLastname`, `cUsername`, `cPassword`, `cDOB`, `cAddress`, `cEmail`, `cContactNumber`, `cPicture`, `verifyCode`, `password_token`, `verify_status`, `admin_status`, `date_created`) VALUES
-(1, 'Hya', 'Genodepa', 'Dojillo', 'HelloWorld', 'mine_01', '2000-01-01', 'skajdkajskdj', 'yangyangdojillo01@gmail.com', '09123456789', '8cEbkjpni.jpg', '3a3c2d15838785cf6f29902d00efe15d', 'b590f68424c134849319c2cce6b0ee2ceDoc', 1, 1, '2023-07-01');
+(1, 'Hya', 'Genodepa', 'Dojillo', 'HelloWorld', 'Hello_01', '2000-01-01', 'skajdkajskdj', 'yangyangdojillo01@gmail.com', '09123456789', '8cEbkjpni.jpg', '3a3c2d15838785cf6f29902d00efe15d', 'b590f68424c134849319c2cce6b0ee2ceDoc', 1, 1, '2023-07-01');
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,10 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`id`, `DocuCode`, `username`, `Docu_type`, `nso_psa`, `baptismal_cert`, `marriage_cert_Parents`, `cedula`, `voters_cert`, `birth_cert_Sibling`, `joint_affidavit`, `brgy_cert`, `cenomar_both`, `birth_cert_both`, `tree_planting`, `mar_counseling`, `parent_sign_m`, `parent_sign_f`, `consent_sign`, `cert_legal_capacity`, `divorce_paper`, `passport`, `date_created`) VALUES
-(1, 'LB-2023-07-07-1', 'HelloWorld', 'Live Birth Certificate', 'batman.pub', '0', 'ConPlan-MRCS-Final.docx', '20220927_190122.jpg', '', '20190807_095724-1.jpg', 'farm.pub', 'DOJILLO-Application-Letter.docx', '', '', '', '', '', '', '', '', '', '', '2023-07-07 16:13:20');
+(1, 'LB-2023-07-07-1', 'HelloWorld', 'Live Birth Certificate', 'batman.pub', '0', 'ConPlan-MRCS-Final.docx', '20220927_190122.jpg', '', '20190807_095724-1.jpg', 'farm.pub', 'DOJILLO-Application-Letter.docx', '', '', '', '', '', '', '', '', '', '', '2023-07-07 16:13:20'),
+(2, 'MC-2023-07-10-2', 'HelloWorld', 'Marriage Certificate', '', '', '', '', '', '', '', '', 'index.html', '', 'style.css', 'Yes', 'script.js', 'ex.html', '20220927_190122.jpg', '', '', '', '2023-07-10 03:02:19'),
+(3, 'MC-2023-07-10-3', 'HelloWorld', 'Marriage Certificate', '', '', '', '', '', '', '', '', '20220927_190122.jpg', '', 'CapstoneProjectLetter_Grammarian.jpg', 'Yes', 'Certi.jpg', 'oncept-gay-people-silhouette-pair-gay-outdoors-sunset_556258-2055.jpg', 'received_544332683913735.jpeg', '', '', '', '2023-07-10 03:28:10'),
+(4, 'LB-2023-07-10-4', 'HelloWorld', 'Live Birth Certificate', 'Dodj-RF.jpg', 'IMG20221209131910.jpg', 'IMG20230210133327.jpg', 'received_544332683913735.jpeg', '', 'potato.png', '', '', '', '', '', '', '', '', '', '', '', '', '2023-07-10 03:30:24');
 
 -- --------------------------------------------------------
 
@@ -130,18 +133,23 @@ CREATE TABLE `requests` (
   `idType` varchar(255) NOT NULL,
   `validID` varchar(255) NOT NULL,
   `tod` varchar(255) NOT NULL COMMENT 'Type of Document',
-  `reg_status` int(11) NOT NULL COMMENT 'yes = 1, no = 0',
+  `reg_status` varchar(50) NOT NULL,
   `dor` date NOT NULL DEFAULT current_timestamp() COMMENT 'Date of Request',
   `status` int(11) NOT NULL DEFAULT 0 COMMENT 'true = 1, false = 0',
-  `date_created` date DEFAULT current_timestamp()
+  `date_created` date DEFAULT current_timestamp(),
+  `date_of_release` varchar(255) NOT NULL,
+  `time_of_release` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `DocuCode`, `cUsername`, `rFirstname`, `rMiddlename`, `rLastname`, `rAge`, `rSex`, `rEmail`, `idType`, `validID`, `tod`, `reg_status`, `dor`, `status`, `date_created`) VALUES
-(1, 'LB-2023-07-07-1', 'HelloWorld', 'Hya Cynth', 'Genodepa', 'Dojillo', 22, 'Female', 'yangyangdojillo01@gmail.com', 'National ID', 'Certi.jpg', 'Live Birth Certificate', 0, '2023-07-08', 0, '2023-07-08');
+INSERT INTO `requests` (`id`, `DocuCode`, `cUsername`, `rFirstname`, `rMiddlename`, `rLastname`, `rAge`, `rSex`, `rEmail`, `idType`, `validID`, `tod`, `reg_status`, `dor`, `status`, `date_created`, `date_of_release`, `time_of_release`) VALUES
+(1, 'LB-2023-07-07-1', 'HelloWorld', 'Hya Cynth', 'Genodepa', 'Dojillo', 22, 'Female', 'yangyangdojillo01@gmail.com', 'National ID', 'Certi.jpg', 'Live Birth Certificate', 'Yes', '2023-07-08', 1, '2023-07-08', '13 Jul 2023', '02:20 PM'),
+(2, 'MC-2023-07-10-2', 'HelloWorld', 'ghjashjg', 'hjgashjdgah', 'hjgjhasgd', 12, 'Male', 'yangyangdojillo01@gmail.com', 'National ID', 'luis-manzano-memes-820.jpg', 'Marriage Certificate', 'No', '2023-07-10', 0, '2023-07-10', '', ''),
+(3, 'MC-2023-07-10-3', 'HelloWorld', 'adasdas', 'asdasda', 'adsdas', 23, 'Female', 'hello@gmail.com', 'PhilHealth', 'AdobeStock_273782936-e1575891134887.jpeg', 'Marriage Certificate', 'Yes', '2023-07-10', 1, '2023-07-10', '', ''),
+(4, 'LB-2023-07-10-4', 'HelloWorld', 'asdklhjlh', 'hakhash', 'jhjkah', 45, 'Female', 'hajhdj@gmail.com', 'Drivers Licensed', '20220908_130746.jpg', 'Live Birth Certificate', 'Yes', '2023-07-10', 0, '2023-07-10', '', '');
 
 --
 -- Indexes for dumped tables
@@ -191,13 +199,13 @@ ALTER TABLE `clients_acc`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

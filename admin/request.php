@@ -32,7 +32,7 @@ include('includes/side_nav.php');
                     <tbody>
                         <?php
 
-                            $sql = "SELECT * FROM `requests` WHERE `reg_status` = 0 AND `status` = 0 LIMIT 1";
+                            $sql = "SELECT * FROM `requests` WHERE `status` = 0";
                             $query_run = $conn->query($sql) or die($conn->error);
                             while($row=$query_run->fetch_assoc())
                             {
@@ -45,7 +45,7 @@ include('includes/side_nav.php');
                             <td> <?= $row['tod']?></td>
                             <td> <?= $row['reg_status']?></td>
                             <td> <?= $row['dor']?></td>
-                            <td><a href="requestDetails.php?id=<?php echo $row['DocuCode']?>" class="btn btn-primary" target="_blank">View Details</a></td>
+                            <td><a href="requestDetails.php?id=<?php echo $row['DocuCode']?>" class="btn btn-primary">View Details</a></td>
                             <!-- <td><button type="button" id="viewModal" class="btn btn-primary">View Details</button></td> -->
                         </tr>
                         <?php

@@ -80,7 +80,7 @@ if (isset($_POST['sendBtn'])) {
     $date = date("d M Y", strtotime($orgdate));
     $time = date("h:i A", strtotime($orgtime));
 
-    $sql = "UPDATE `requests` SET `status`='1' WHERE `DocuCode`='$docuCode'";
+    $sql = "UPDATE `requests` SET `status`='1',`date_of_release`='$date',`time_of_release`='$time' WHERE `DocuCode`='$docuCode'";
     $run = mysqli_query($conn, $sql);
 
     if ($run) {
@@ -89,7 +89,6 @@ if (isset($_POST['sendBtn'])) {
         $_SESSION['status_text'] = "The schedule has been send to the Client.";
         $_SESSION['status_code'] = "success";
         $_SESSION['status_btn'] = "Done";
-        // echo "<script>window.close()</script>";
         header("Location: request");
     }else {
         $_SESSION['status'] = "Request Cannot Confirmed!";

@@ -78,12 +78,12 @@ include('includes/side_nav.php');
                                 <select class="form-select form-select" name="id_type" id="id_type" required>
                                     <option value="" selected>Select ID type</option>
                                     <option value="National ID">National ID</option>
-                                    <option value="Driver's Licensed">Driver's Licensed</option>
+                                    <option value="Drivers Licensed">Driver's Licensed</option>
                                     <option value="PhilHealth">PhilHealth</option>
                                     <option value="UMID">UMID</option>
                                     <option value="Passport">Passport</option>
                                     <option value="PRC">PRC</option>
-                                    <option value="Voter's ID">Voter's ID</option>
+                                    <option value="Voters ID">Voter's ID</option>
                                     <option value="SSS/GSIS ID">SSS/GSIS ID</option>
                                     <option value="Postal ID">Postal ID</option>
                                     <option value="School ID">School ID</option>

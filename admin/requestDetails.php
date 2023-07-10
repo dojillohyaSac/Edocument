@@ -17,16 +17,16 @@ session_start();
             <?php
             unset($_SESSION['status']);
             }
-            unset($_SESSION['close']);
         ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>eDocument</title>
 
-   <!-- CSS only -->
+     <!-- CSS only -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
@@ -38,10 +38,12 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 </head>
 <body>
+
     <div class="container mt-3 mb-5">
         <h2 class="text-center mb-3"><img class="mb-4" src="images/crc-logo.png" alt="" width="60" height="60"> REQUEST DETAILS</h2>
         <div class="row">
@@ -125,7 +127,7 @@ session_start();
                                 </button>
                             <!-- </div>
                             <div class="col d-grid gap-2"> -->
-                                <a class="btn btn-dark mt-1" type="button" href="javascript:close_window();">Back</a>
+                                <a class="btn btn-dark mt-1" type="button" href="request">Back</a>
                             </div>
                         </div>
                     </div>
@@ -231,7 +233,7 @@ session_start();
                         <fieldset class="row mb-3">
                             <legend class="col-form-label col-sm-3 pt-0">Counseling/Family Planning</legend>
                             <div class="col-sm-9">
-                                <input class="form-check-input" type="text" name="cfp" id="cfp" value="<?php echo $row['mar_counseling'];?>" readonly>
+                                <input class="form-control" type="text" name="cfp" id="cfp" value="<?php echo $row['mar_counseling'];?>" readonly>
                             </div>
                         </fieldset>
 
