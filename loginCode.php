@@ -19,14 +19,14 @@ function sendemail_verify($lname,$email,$verifyCode){
     $mail->SMTPAuth = true;
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "yangyangdojillo01@gmail.com";
-    $mail->Password   = "rkgohtilsixczzhm";
+    $mail->Username   = "edocumentcivilregistry@gmail.com";
+    $mail->Password   = "pcgmlinmpwlaefrc";
 
     $mail->SMTPSecure = "tls";
     $mail->Port       = "587";
 
     
-    $mail->setFrom("yangyangdojillo01@gmail.com", "Sample Verification");
+    $mail->setFrom("edocumentcivilregistry@gmail.com", "Civil Registry Office");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -58,7 +58,7 @@ function sendemail_verify($lname,$email,$verifyCode){
                 <div class='col-12'>
                     <p class='text-center fs-5 text-white mt-5'><strong>Get in touch</strong></p>
                     <p class='text-center fs-6 text-white'><strong>+11 111 333 4444</strong></p>
-                    <p class='text-center fs-6 text-white'>yangyangdojillo01@gmail.com</p>
+                    <p class='text-center fs-6 text-white'>edocumentcivilregistry@gmail.com</p>
                 </div>
             </div>
             <div class='row bg-primary'>

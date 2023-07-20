@@ -32,14 +32,18 @@ header
 }
 .log-logo
 {
-    margin-left: 42%;
     margin-bottom: 50px;
-   
 }
-.admin-logo
-{
-    height: 100px;
-}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    width: 150px;
+  }
+
+
 .navlist
 {
     display: flex;
@@ -54,7 +58,7 @@ header
     transition: all .55s ease;
     text-decoration: none;
 }
-.navlist a:hover
+.navlist a:hoverfooter
 {
     border-bottom: 2px solid #222;
 }
@@ -70,7 +74,7 @@ header
 {
     height: 100%;
     width: 100%;
-    min-height: 95vh;
+    min-height: 94vh;
     background: linear-gradient(245.59deg, #8b8232 0%, #918835,  #F0E161 75.52%);
     position: relative;
     display: grid;
@@ -113,6 +117,7 @@ section
 
 .hero-text a
 {
+margin-top: 15px;
  display: inline-block;
  color: #D9CB50;
  background: #1D1C18;
@@ -128,10 +133,10 @@ section
 
 .hero-text a:hover
 {
-    background: #8d8327;
+    background: #222;
     border: 1px solid #111;
     transform: translateX(8px);
-    color: #222;
+    color: #d2e5ed;
 }
 
 
@@ -241,10 +246,10 @@ transition: all .50s ease;
 
 .off-but:hover
 {
-    background: #8d8327;
+    background: #222;
     border: 1px solid #111;
     transform: translateX(8px);
-    color: #222;
+    color: #fff;
 }
 
 :root{
@@ -287,7 +292,6 @@ transition: all .50s ease;
 .admin-login
 {
     width: 100px;
-    
     height: 40px;
     width: 100%;
     border-radius: 5px;
@@ -308,7 +312,7 @@ transition: all .50s ease;
 footer
 {
     background: #1D1C18;
-    height: 44px;
+    height: 54px;
     width: 100%;
     
     color: #fff;
@@ -329,8 +333,8 @@ footer
 {
     max-width: 500px;
     margin: 10px auto;
-    
-    font-size: 14px;
+    font-size: 15px;
+    padding-top: 10px;
 }
 .input-group
 {

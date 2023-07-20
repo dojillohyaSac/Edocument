@@ -12,4 +12,6 @@ if ($conn->connect_errno) {
     die("Connection Failed: ".$conn->connect_error);
 }
 
+// $gmail = "edocumentcivilregistry@gmail.com";
+// $gmailps = "pcgmlinmpwlaefrc";
 ?>

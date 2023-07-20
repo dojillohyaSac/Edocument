@@ -16,7 +16,7 @@ include('includes/side_nav.php');
         <div class="card mb-4 shadow">
             <div class="card-body">
                 
-                <table class="table table-bordered table-striped table-hovered table-light" id="table">
+                <table id="table" class="table table-bordered table-striped table-hovered table-light" >
                     <thead class="table table-dark">
                         <tr>
                             <th scope="col">Code</th>
@@ -57,7 +57,9 @@ include('includes/side_nav.php');
         </div>
     </div>
 </main>
-
+<script>
+    new DataTable('#table');
+</script> 
  <!-- View Record Modal -->
  <div class="modal fade" id="ViewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">

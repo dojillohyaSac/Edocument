@@ -47,7 +47,7 @@ include('includes/side_nav.php');
         <div class="card mb-4 shadow row">
             <div class="card-body">
                 
-                <table class="table table-bordered table-striped table-hovered table-light" id="table">
+                <table id="user" class="table table-bordered table-striped table-hovered table-light" >
                     <thead class="table table-dark">
                         <tr>
                             <th scope="col">Username</th>
@@ -86,7 +86,9 @@ include('includes/side_nav.php');
         </div>
     </div>
 </main>
-
+<script>
+    new DataTable('#user');
+</script> 
 <?php
 include('includes/footer.php');
 ?>

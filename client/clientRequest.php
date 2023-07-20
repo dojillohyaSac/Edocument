@@ -132,34 +132,34 @@ include('includes/side_nav.php');
                         <div class="row mb-3">
                             <label for="birthCerti" class="col-sm-3 col-form-label">Birth Certificate</label>
                             <div class="col-sm-9">
-                                <input type="file" id="birthCerti" class="form-control" name="birthCerti" required>
+                                <input type="file" id="birthCerti" class="form-control" name="birthCerti" >
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="cenomar" class="col-sm-3 col-form-label">CENOMAR</label>
                             <div class="col-sm-9">
-                                <input type="file" id="cenomar" class="form-control" name="cenomar" required>
+                                <input type="file" id="cenomar" class="form-control" name="cenomar" >
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="cedula" class="col-sm-3 col-form-label">CEDULA</label>
                             <div class="col-sm-9">
-                                <input type="file" id="cedula" class="form-control" name="cedula" required>
+                                <input type="file" id="cedula" class="form-control" name="cedula" >
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="ctp" class="col-sm-3 col-form-label">Certificate of Tree Planting</label>
                             <div class="col-sm-9">
-                                <input type="file" id="ctp" class="form-control" name="ctp" required>
+                                <input type="file" id="ctp" class="form-control" name="ctp" >
                             </div>
                         </div>
 
                         <fieldset class="row mb-3">
                             <legend class="col-form-label col-sm-3 pt-0">Counseling/Family Planning</legend>
-                            <div class="col-sm-9" required>
+                            <div class="col-sm-9" >
                                 <input class="form-check-input" type="radio" name="cfp" id="cfp" value="Yes"/> Yes
                                 <input class="form-check-input" type="radio" name="cfp" id="cfp" value="No"/> No
                             </div>
@@ -171,13 +171,13 @@ include('includes/side_nav.php');
                         <div class="row mb-3">
                             <label for="advice_sign_m" class="col-sm-3 col-form-label">Mother</label>
                             <div class="col-sm-9">
-                                <input type="file" id="advice_sign_m" class="form-control" name="advice_sign_m" required>
+                                <input type="file" id="advice_sign_m" class="form-control" name="advice_sign_m" >
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="advice_sign_f" class="col-sm-3 col-form-label">Father</label>
                             <div class="col-sm-9">
-                                <input type="file" id="advice_sign_f" class="form-control" name="advice_sign_f" required>
+                                <input type="file" id="advice_sign_f" class="form-control" name="advice_sign_f" >
                             </div>
                         </div>
                         <hr>
@@ -186,7 +186,7 @@ include('includes/side_nav.php');
                         <div class="row mb-3">
                             <label for="consent" class="col-sm-3 col-form-label">Signature</label>
                             <div class="col-sm-9">
-                                <input type="file" id="consent" class="form-control" name="consent" required>
+                                <input type="file" id="consent" class="form-control" name="consent" >
                             </div>
                         </div>
                         <hr>
@@ -225,34 +225,34 @@ include('includes/side_nav.php');
                         <div class="row mb-3">
                             <label for="npsa" class="col-sm-4 col-form-label">Negative PSA Certification</label>
                             <div class="col-sm-8">
-                                <input type="file" id="npsa" class="form-control" name="npsa" required>
+                                <input type="file" id="npsa" class="form-control" name="npsa" >
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="baptismal" class="col-sm-4 col-form-label">Baptismal Certification</label>
                             <div class="col-sm-8">
-                                <input type="file" id="baptismal" class="form-control" name="baptismal" required>
+                                <input type="file" id="baptismal" class="form-control" name="baptismal" >
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="mcp" class="col-sm-4 col-form-label">Marriage Contract of Parents</label>
                             <div class="col-sm-8">
-                                <input type="file" id="mcp" class="form-control" name="mcp" required>
+                                <input type="file" id="mcp" class="form-control" name="mcp" >
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="cedula" class="col-sm-4 col-form-label">Cedula of Informant</label>
                             <div class="col-sm-8">
-                                <input type="file" id="cedula" class="form-control" name="cedula" required>
+                                <input type="file" id="cedula" class="form-control" name="cedula" >
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="birthCerti" class="col-sm-4 col-form-label">Birth Certificate (Siblings)</label>
                             <div class="col-sm-8">
-                                <input type="file" id="birthCerti" class="form-control" name="birthCerti" required>
+                                <input type="file" id="birthCerti" class="form-control" name="birthCerti" >
                                 <small class="text-dark fst-italic">All Birth Certificate(s) must be in one file ONLY.</small>
                             </div>
                         </div>
@@ -262,13 +262,13 @@ include('includes/side_nav.php');
                         <div class="row mb-3">
                             <label for="affidavit" class="col-sm-4 col-form-label">Joint Affidavit</label>
                             <div class="col-sm-8">
-                                <input type="file" id="affidavit" class="form-control" name="affidavit" required>
+                                <input type="file" id="affidavit" class="form-control" name="affidavit" >
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="brgyCerti" class="col-sm-4 col-form-label">Barangay Certification</label>
                             <div class="col-sm-8">
-                                <input type="file" id="brgyCerti" class="form-control" name="brgyCerti" required>
+                                <input type="file" id="brgyCerti" class="form-control" name="brgyCerti" >
                             </div>
                         </div>
 

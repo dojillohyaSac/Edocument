@@ -1,7 +1,7 @@
 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div class="text-muted">copyright &copy; The IS-UATech Enthusiast</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -19,8 +19,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
-        <!-- DataTables -->
-        <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+     
     </body>
 </html>

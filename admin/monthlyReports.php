@@ -18,7 +18,7 @@ include('includes/side_nav.php');
         <div class="card">
             <h5 class="card-header">Records</h5>
             <div class="card-body">
-                <table class="table table-responsive">
+                <table id="report" class="table table-responsive" >
                   <?php    
                           $query = "SELECT DISTINCT * FROM requests WHERE MONTH(`date_created`) = MONTH(CURRENT_DATE()) GROUP BY tod";
                           $query_run = mysqli_query($conn, $query);
@@ -136,6 +136,9 @@ include('includes/side_nav.php');
         </div>
     </div>
 </main>
+<script>
+    new DataTable('#report');
+</script> 
 
 <?php
 include('includes/footer.php');

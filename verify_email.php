@@ -19,14 +19,14 @@ function sendemail_verified($Lastname,$email){
     $mail->SMTPAuth = true;
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "yangyangdojillo01@gmail.com";
-    $mail->Password   = "rkgohtilsixczzhm";
+    $mail->Username   = "edocumentcivilregistry@gmail.com";
+    $mail->Password   = "pcgmlinmpwlaefrc";
 
     $mail->SMTPSecure = "tls";
     $mail->Port       = "587";
 
     
-    $mail->setFrom("yangyangdojillo01@gmail.com", "Sample Verification");
+    $mail->setFrom("edocumentcivilregistry@gmail.com", "Civil Registry Office");
     $mail->addAddress($email);
 
     $mail->isHTML(true);
@@ -52,14 +52,14 @@ function sendemail_not_Verified($Lastname,$email){
     $mail->SMTPAuth = true;
 
     $mail->Host       = "smtp.gmail.com";
-    $mail->Username   = "yangyangdojillo01@gmail.com";
-    $mail->Password   = "rkgohtilsixczzhm";
+    $mail->Username   = "edocumentcivilregistry@gmail.com";
+    $mail->Password   = "pcgmlinmpwlaefrc";
 
     $mail->SMTPSecure = "tls";
     $mail->Port       = "587";
 
     
-    $mail->setFrom("yangyangdojillo01@gmail.com", "Sample Verification");
+    $mail->setFrom("edocumentcivilregistry@gmail.com", "Civil Registry Office");
     $mail->addAddress($email);
 
     $mail->isHTML(true);

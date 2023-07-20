@@ -13,10 +13,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-file-lines"></i></div>
                     Request Form
                 </a>
-                <a class="nav-link collapsed" href="document_client">
+                <!-- <a class="nav-link collapsed" href="document_client">
                     <div class="sb-nav-link-icon"><i class="fas fa-folder"></i></div>
                     Documents
-                </a>
+                </a> -->
                 <div class="sb-sidenav-menu-heading">User</div>
                 <a class="nav-link collapsed" href="userAccount">
                     <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>

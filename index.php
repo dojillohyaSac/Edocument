@@ -33,12 +33,12 @@ session_start();
 
      <!-- offcanvas -->
      <div class="offcanvas offcanvas-end bg-dark <?php if (isset($_SESSION['set'])) { echo $_SESSION['set']; unset ($_SESSION['set']);}?>" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header">
+      <div class="offcanvas-header mt-5">
         <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <div class="log-logo"><img src="images/logo-transparent.png" class="admin-logo"></div>
+        <div class="log-logo"><img src="images/logo-transparent.png" class="center"></div>
 
         <form method="POST" action="loginCode.php">
           <div class="form-floating mb-3">
@@ -84,7 +84,7 @@ session_start();
  <div class="footer-content">
     
     <div class="footer-bottom">
-      <p>copyright &copy; The IS-UATech Enthusiast designed by <span>Rex Bernesto</span></p>
+      <p>copyright &copy; The IS-UATech Enthusiast </p>
     </div>
  </div>
 </footer>
