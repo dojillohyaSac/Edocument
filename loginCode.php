@@ -64,7 +64,7 @@ function sendemail_verify($lname,$email,$verifyCode){
             <div class='row bg-primary'>
                 <div class='col-12'>
                     <p class='text-center fs-6 text-white'>Copyrights © eDocument: Online Application and Document Tracking and Repository System. All Rights Reserved</p>
-                </div>
+                </div
             </div>
     ";
     $mail->Body = $email_template;

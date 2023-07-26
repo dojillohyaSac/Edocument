@@ -73,7 +73,7 @@ function resend_email_verify($Lastname, $email, $token){
             <div class='row mt-5'>
                 <div class='col-12'>
                     <p class='text-center fs-4'><b>Dear $Lastname,</b></p>
-                    <p class='text-center fs-5'>You registered an account on BJMP Log Monitoring Website, before being able to use your account you need to verify that this is your email address by clicking here:</p>
+                    <p class='text-center fs-5'>You registered an account on eDocument: Online Application and Document Tracking and Repository System, before being able to use your account you need to verify that this is your email address by clicking here:</p>
                     <div class='d-grid gap-2 col-6 mx-auto mt-5 mb-5'>
                         <a href='http://localhost/eDocument/verify_email.php?token=$token' class='btn btn-warning btn-lg'>Verify Your Email</a>
                     </div>
@@ -117,7 +117,6 @@ if (isset($_POST['resendBtn'])) {
         if ($row['verify_status'] == '0') {
             $Lastname = $row['cLastname'];
             $token = $row['verifyCode'];
-            $type = $position;
         
             resend_email_verify("$Lastname", "$email", "$token");
         
@@ -126,6 +125,7 @@ if (isset($_POST['resendBtn'])) {
             $_SESSION['status_code'] = "success";
             $_SESSION['status_btn'] = "Done";
             header("Location: index.php");
+            
         }else {
             $_SESSION['status'] = "Email is Already Verified.";
             $_SESSION['status_text'] = "Your Account has been verified already. Please Log in.";
